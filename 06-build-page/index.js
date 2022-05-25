@@ -36,6 +36,7 @@ const writeStream = fs.createWriteStream(path.join(pathToProjectDist, 'style.css
 
 fs.readdir(pathToStyle, { withFileTypes: true }, (error, files) => {
   if (error) { throw error; }
+  files = files.reverse();
   for (const file of files) {
     const filepath = path.join(pathToStyle, file.name);
     const parsedFilepath = path.parse(filepath);
