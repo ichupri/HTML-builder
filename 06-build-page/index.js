@@ -21,7 +21,7 @@ async function buildHtml() {
       if (element.name.slice(-5) === '.html') {
         const pathToTarget = join(pathToComponents, element.name);
         const substitution = await fs.promises.readFile(pathToTarget);
-        templateHtml = templateHtml.replace(`{${element.name.slice(0, -5)}}`, substitution);
+        templateHtml = templateHtml.replace(`{{${element.name.slice(0, -5)}}}`, substitution);
       }
     }
   }
